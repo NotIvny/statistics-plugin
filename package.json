@@ -1,0 +1,14 @@
+{
+  "name": "statistics-plugin",
+  "version": "1.0.0",
+  "author": "EmptyLava",
+  "description": "miao-plugin",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "chart.js": "^4.4.1"
+  },
+  "pnpm": {
+    "patchedDependencies": {}
+  }
+}
