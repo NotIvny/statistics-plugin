@@ -4,11 +4,11 @@
 ## **安装插件**
 下载插件
 ```
-git clone --depth=1 https://github.com/NotIvny/statistic-plugin.git ./plugins/statistic-plugin
+git clone --depth=1 https://github.com/NotIvny/statistics-plugin.git ./plugins/statistics-plugin
 ```
 安装依赖
 ```
-pnpm install --filter=statistic-plugin
+pnpm install --filter=statistics-plugin
 ```
 ## **功能介绍**
 
