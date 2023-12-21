@@ -1,6 +1,7 @@
 import fs from "fs";
 import moment from "moment";
 let path = './plugins/statistics-plugin/config/stats.json';
+let cwd = process.cwd().replace(/\\/g, '/')
 export async function getData(groupid,userid) {
     // 读数据
     let statsData;
@@ -28,17 +29,9 @@ export async function getData(groupid,userid) {
         groupid = ('群' + groupid);
     }
     return {
-        headImg: '',
-        version: '',
-        YunzaiName: '',
-        YunzaiVersion: '',
-        acgBg: '',
-        helpData: '',
-        saveId: userid,
-        cwd: cwd,
         tplFile: `${cwd}/plugins/statistics-plugin/resources/stats.html`,
         pluResPath: `${cwd}/plugins/statistics-plugin/resources/`,
-        headStyle: '',
+        userid: userid,
         commandUsageLast24Hours: commandUsage24,
         timePointsLast24Hours: timePoints24,
         maxCommandUsage: maxCommandUsage,

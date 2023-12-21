@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>命令使用统计</title>
     <script src="../../../node_modules/chart.js/dist/chart.umd.js"></script>
+    <style>
+        body{
+            margin: 0;
+        }
+        #background-container{
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: url('../../../plugins/statistics-plugin/resources/background.png');
+            background-size: cover;
+            filter: blur(4px);
+            opacity: 0.2;
+        }
+        #chart-container{
+            filter: blur(0px);
+        }
+        canvas{
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
+
 <body>
-    <canvas id="myLineChart" width="2880" height="1440"></canvas>
+    <div id="background-container"></div>
+    <div id="chart-container">
+    <canvas id="LineChart"></canvas>
+    </div>
     <script>
-        var ctx = document.getElementById('myLineChart').getContext('2d');
+        var ctx = document.getElementById('LineChart').getContext('2d');
         var data = {
             labels: ['{{timePointsLast24Hours[23]}}', '{{timePointsLast24Hours[22]}}',
-            '{{timePointsLast24Hours[21]}}','{{timePointsLast24Hours[20]}}',
-            '{{timePointsLast24Hours[19]}}','{{timePointsLast24Hours[18]}}',
-            '{{timePointsLast24Hours[17]}}','{{timePointsLast24Hours[16]}}',
-            '{{timePointsLast24Hours[15]}}','{{timePointsLast24Hours[14]}}',
-            '{{timePointsLast24Hours[13]}}','{{timePointsLast24Hours[12]}}',
-            '{{timePointsLast24Hours[11]}}','{{timePointsLast24Hours[10]}}',
-            '{{timePointsLast24Hours[9]}}','{{timePointsLast24Hours[8]}}',
-            '{{timePointsLast24Hours[7]}}','{{timePointsLast24Hours[6]}}',
-            '{{timePointsLast24Hours[5]}}','{{timePointsLast24Hours[4]}}',
-            '{{timePointsLast24Hours[3]}}','{{timePointsLast24Hours[2]}}',
-            '{{timePointsLast24Hours[1]}}','{{timePointsLast24Hours[0]}}'],
+                '{{timePointsLast24Hours[21]}}', '{{timePointsLast24Hours[20]}}',
+                '{{timePointsLast24Hours[19]}}', '{{timePointsLast24Hours[18]}}',
+                '{{timePointsLast24Hours[17]}}', '{{timePointsLast24Hours[16]}}',
+                '{{timePointsLast24Hours[15]}}', '{{timePointsLast24Hours[14]}}',
+                '{{timePointsLast24Hours[13]}}', '{{timePointsLast24Hours[12]}}',
+                '{{timePointsLast24Hours[11]}}', '{{timePointsLast24Hours[10]}}',
+                '{{timePointsLast24Hours[9]}}', '{{timePointsLast24Hours[8]}}',
+                '{{timePointsLast24Hours[7]}}', '{{timePointsLast24Hours[6]}}',
+                '{{timePointsLast24Hours[5]}}', '{{timePointsLast24Hours[4]}}',
+                '{{timePointsLast24Hours[3]}}', '{{timePointsLast24Hours[2]}}',
+                '{{timePointsLast24Hours[1]}}', '{{timePointsLast24Hours[0]}}'],
             datasets: [{
                 label: '{{groupid}}命令使用统计',
-                borderColor: 'rgb(75, 192, 192)',
-                data: ['{{commandUsageLast24Hours[23]}}', '{{commandUsageLast24Hours[22]}}', 
-                '{{commandUsageLast24Hours[21]}}', '{{commandUsageLast24Hours[20]}}',
-                '{{commandUsageLast24Hours[19]}}','{{commandUsageLast24Hours[18]}}',
-                '{{commandUsageLast24Hours[17]}}','{{commandUsageLast24Hours[16]}}',
-                '{{commandUsageLast24Hours[15]}}','{{commandUsageLast24Hours[14]}}',
-                '{{commandUsageLast24Hours[13]}}','{{commandUsageLast24Hours[12]}}',
-                '{{commandUsageLast24Hours[11]}}','{{commandUsageLast24Hours[10]}}',
-                '{{commandUsageLast24Hours[9]}}','{{commandUsageLast24Hours[8]}}',
-                '{{commandUsageLast24Hours[7]}}','{{commandUsageLast24Hours[6]}}',
-                '{{commandUsageLast24Hours[5]}}','{{commandUsageLast24Hours[4]}}',
-                '{{commandUsageLast24Hours[3]}}','{{commandUsageLast24Hours[2]}}',
-                '{{commandUsageLast24Hours[1]}}','{{commandUsageLast24Hours[0]}}'],
+                cubicInterpolationMode: 'monotone',
+                tension: 0.4,
+                borderColor: '#33CCCC',
+                data: ['{{commandUsageLast24Hours[23]}}', '{{commandUsageLast24Hours[22]}}',
+                    '{{commandUsageLast24Hours[21]}}', '{{commandUsageLast24Hours[20]}}',
+                    '{{commandUsageLast24Hours[19]}}', '{{commandUsageLast24Hours[18]}}',
+                    '{{commandUsageLast24Hours[17]}}', '{{commandUsageLast24Hours[16]}}',
+                    '{{commandUsageLast24Hours[15]}}', '{{commandUsageLast24Hours[14]}}',
+                    '{{commandUsageLast24Hours[13]}}', '{{commandUsageLast24Hours[12]}}',
+                    '{{commandUsageLast24Hours[11]}}', '{{commandUsageLast24Hours[10]}}',
+                    '{{commandUsageLast24Hours[9]}}', '{{commandUsageLast24Hours[8]}}',
+                    '{{commandUsageLast24Hours[7]}}', '{{commandUsageLast24Hours[6]}}',
+                    '{{commandUsageLast24Hours[5]}}', '{{commandUsageLast24Hours[4]}}',
+                    '{{commandUsageLast24Hours[3]}}', '{{commandUsageLast24Hours[2]}}',
+                    '{{commandUsageLast24Hours[1]}}', '{{commandUsageLast24Hours[0]}}'],
                 fill: true
             }]
         };
@@ -60,13 +88,12 @@
                 }
             }
         };
-
-        // 创建折线图
-        var myLineChart = new Chart(ctx, {
+        var LineChart = new Chart(ctx, {
             type: 'line',
             data: data,
             options: options
         });
     </script>
 </body>
+
 </html>
