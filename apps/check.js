@@ -2,6 +2,7 @@ import fs from "fs";
 import moment from "moment";
 import plugin from '../../../lib/plugins/plugin.js';
 let path = './plugins/statistics-plugin/config/stats.json';
+
 export class stats extends plugin {
     constructor() {
         super({
