@@ -32,7 +32,6 @@ export class stats extends plugin {
         } catch (error) {
             statsData = {};
         }
-
         // 计数器
         statsData['Total'] = statsData['Total'] || {};
         statsData['Total'][time] = (statsData['Total'][time] || 0) - 1;

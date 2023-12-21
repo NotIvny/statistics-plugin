@@ -54,15 +54,14 @@ export class statsbefore extends plugin {
         return false;
     }
     async showstats(e){
-        if(!e.isMaster && !this.e.member?.is_admin){
-            return false;
-        }
         let userid = e.user_id;
         let groupid = e.group_id;
         const group = this.e.msg.replace("#命令统计", "").trim();
         let data;
         if(group == ""){
             data = await getData(groupid,userid);
+        }else if(!e.isMaster){
+            return false;
         }else if(group > 0 && group < 1000000000){
             data = await getData(group,userid);
         }else if(group == '全局'){
