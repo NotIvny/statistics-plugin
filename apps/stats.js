@@ -10,7 +10,7 @@ export class statsbefore extends plugin {
             name: '命令统计',
             dsc: '命令统计',
             event: 'message',
-            priority: -5000,
+            priority: -4000,
             rule: [
                 {
                     reg: '^(.*)$',
