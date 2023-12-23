@@ -6,27 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>命令使用统计</title>
     <script src="../../../node_modules/chart.js/dist/chart.umd.js"></script>
-    <style>
-        body{
-            margin: 0;
-        }
-        #background-container{
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            background: url('../../../plugins/statistics-plugin/resources/background.png');
-            background-size: cover;
-            filter: blur(4px);
-            opacity: 0.2;
-        }
-        #chart-container{
-            filter: blur(0px);
-        }
-        canvas{
-            width: 100vw;
-            height: 100vh;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{pluResPath}}stats.css"/>
 </head>
 
 <body>
@@ -34,6 +14,7 @@
     <div id="chart-container">
     <canvas id="LineChart"></canvas>
     </div>
+    <div id="bottom">Created By Yunzai-Bot & statistic-plugin</div>
     <script>
         var ctx = document.getElementById('LineChart').getContext('2d');
         var data = {

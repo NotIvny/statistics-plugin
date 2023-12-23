@@ -1,0 +1,31 @@
+body{
+            margin: 0;
+        }
+        #background-container{
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: url('../../../plugins/statistics-plugin/resources/background.png');
+            background-size: cover;
+            filter: blur(4px);
+            opacity: 0.2;
+        }
+        #chart-container{
+            filter: blur(0px);
+        }
+        #bottom{
+        color: black;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        font-family: 'tttgbnumber';
+        }
+        canvas{
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        @font-face {
+        font-family: 'tttgbnumber';
+        src: url('./font/tttgbnumber.ttf');
+        }
