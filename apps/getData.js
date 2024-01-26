@@ -8,7 +8,8 @@ export async function getData(groupid,userid) {
     try {
         statsData = JSON.parse(fs.readFileSync(path, 'utf-8'));
     } catch (error) {
-        statsData = {};
+        console.log(error);
+        return false;
     }
 
     // 用于网页的数据
