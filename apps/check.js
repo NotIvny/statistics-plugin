@@ -30,7 +30,8 @@ export class stats extends plugin {
             // 读文件
             statsData = JSON.parse(fs.readFileSync(path, 'utf-8'));
         } catch (error) {
-            statsData = {};
+            console.log(error);
+            return false;
         }
         // 计数器
         statsData['Total'] = statsData['Total'] || {};
